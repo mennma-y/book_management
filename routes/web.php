@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('index');
+});
 
 Route::get('/books','BookController@index')->name('index');
 Route::get('/books/register','BookController@create')->name('create');
