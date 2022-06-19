@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use Facade\Ignition\QueryRecorder\Query;
 
 class BookController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        
+        //キーワード検索
+        $keyword = $request->keyword;
 
-        $books = Book::where('status',1)->get();
-        return view('index',compact('books'));
+        $query = \App\Book::query();
+
+        if(!empty($keyword)){
+            $query->where('url','like','%'.$keyword.'%');
+            $query->orWhere('title','like','%'.$keyword.'%');
+        }
+        //本の情報全件取得
+        $books = $query->where('status',1)->orderBy('created_at','desc')->paginate(6);
+        return view('index',compact('books'))->with('keyword',$keyword);
     }
 
     public function create(){

@@ -7,9 +7,10 @@
     <div class="main-title">
         <h2 style="margin-bottom: 30px;">書籍一覧</h2>
     </div>
-    <form>
+    <form method="GET">
+        @csrf
         <div class="form-group search-box">
-            <input  type="text" class="form-control keyword" id="keyword" name="keyword" placeholder="キーワード">
+            <input  type="text" class="form-control keyword" id="keyword" name="keyword" value="{{$keyword}}" placeholder="キーワード">
             <button type="submit" class="btn btn-primary keyword-button">検索ボタン</button>
         </div>
     </form>
@@ -23,5 +24,9 @@
                 </div>
         </div>
     @endforeach
+
+    <div style="width: 10%; margin:50px auto;">  
+        {!! $books->appends(['keyword'=>$keyword])->render()!!}
+    </div>
     
 @endsection
