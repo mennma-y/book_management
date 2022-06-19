@@ -7,7 +7,8 @@
         <h2 style="margin-bottom: 30px;">書籍情報の登録</h2>
     </div>
     
-    <form>
+    <form method="POST" action="/books/store">
+        @csrf
         <div class="form-group create-form">
             <label for="title" style="float: left;">タイトル</label>
             <input type="text" style="padding:25px;" class="form-control" id="title" name="title" placeholder="タイトルを入力">

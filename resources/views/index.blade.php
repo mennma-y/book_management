@@ -14,40 +14,14 @@
         </div>
     </form>
         
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">走れメロス</h4>
-            <a style="font-size:15px;" href="#">https://www.aozora.gr.jp/cards/000035/files/1567_14913.html</a>
-            <a href="#" class="btn btn-primary" style="padding: 10px;">編集ボタン</a>
+    @foreach($books as $book)
+        <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{$book->title}}</h4>
+                    <a style="font-size:15px;" href="{{$book->url}}">{{$book->url}}</a>
+                    <a href="{{route('edit',$book['id'])}}" class="btn btn-primary" style="padding: 10px;">編集ボタン</a>
+                </div>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">ハリーポッターと賢者の石</h4>
-            <a style="font-size:15px;" href="#">https://www.aozora.gr.jp/cards/000035/files/1567_14913.html</a>
-            <a href="#" class="btn btn-primary" style="padding: 10px;">編集ボタン</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">走れメロス</h4>
-            <a style="font-size:15px;" href="#">https://www.aozora.gr.jp/cards/000035/files/1567_14913.html</a>
-            <a href="#" class="btn btn-primary" style="padding: 10px;">編集ボタン</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">走れメロス</h4>
-            <a style="font-size:15px;" href="#">https://www.aozora.gr.jp/cards/000035/files/1567_14913.html</a>
-            <a href="#" class="btn btn-primary" style="padding: 10px;">編集ボタン</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">走れメロス</h4>
-            <a style="font-size:15px;" href="#">https://www.aozora.gr.jp/cards/000035/files/1567_14913.html</a>
-            <a href="#" class="btn btn-primary" style="padding: 10px;">編集ボタン</a>
-        </div>
-    </div>
+    @endforeach
     
 @endsection
